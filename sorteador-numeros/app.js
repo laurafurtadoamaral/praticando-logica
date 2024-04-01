@@ -2,6 +2,15 @@ function sortear(){
     let quantidade = parseInt(document.getElementById('quantidade').value);
     let de = parseInt(document.getElementById('de').value);
     let ate = parseInt(document.getElementById('ate').value);
+
+    if (de >= ate){
+        alert ('Atenção, valor do campo "Do número" deve ser inferior ao do campo "Até o número". Verifique!');
+        return;
+    }
+    if (quantidade >= (ate - de) ){
+        alert (`A quantidade de números solicitada é maior que os números contidos no intervalo de ${de} a ${ate}`);
+        return;
+    }
     
     let numerosSorteados = [];
     for (let i=0; i < quantidade; i++){
