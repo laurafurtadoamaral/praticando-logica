@@ -20,3 +20,9 @@ totalGeral = totalGeral + preco;
 let valorTotal = document.getElementById('valor-total');
 valorTotal.textContent = `R$${totalGeral}`;
 }
+
+function limpar(){
+    totalGeral = 0;
+    document.getElementById('lista-produtos').innerHTML = '';
+    document.getElementById('valor-total').innerHTML = 'R$0,00';
+}
