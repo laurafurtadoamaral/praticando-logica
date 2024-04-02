@@ -8,6 +8,8 @@ function adicionar(){
     let valorUnitario = produto.split('$')[1];
     let quantidade = document.getElementById('quantidade').value;    
     let preco = quantidade * valorUnitario;
+    document.getElementById('quantidade').value = '';
+
 
 // adicionar produto no carrinho
     let listaProdutos = document.getElementById('lista-produtos');
