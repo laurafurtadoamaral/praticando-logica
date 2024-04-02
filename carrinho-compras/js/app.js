@@ -1,4 +1,6 @@
-let valorTotal = document.getElementById('valor-total');
+let totalGeral = 0;
+document.getElementById('lista-produtos').innerHTML = '';
+document.getElementById('valor-total').innerHTML = 'R$0,00';
 
 function adicionar(){ 
     let produto = document.getElementById('produto').value;
@@ -14,5 +16,7 @@ function adicionar(){
   </section>`;
 
 // atualizar preço total
-
+totalGeral = totalGeral + preco;
+let valorTotal = document.getElementById('valor-total');
+valorTotal.textContent = `R$${totalGeral}`;
 }
