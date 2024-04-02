@@ -6,7 +6,11 @@ function adicionar(){
     let produto = document.getElementById('produto').value;
     let nomeProduto = produto.split('-')[0];
     let valorUnitario = produto.split('$')[1];
-    let quantidade = document.getElementById('quantidade').value;    
+    let quantidade = document.getElementById('quantidade').value;   
+    if (quantidade <= 0) {
+        alert('Digite um número maior que zero!');
+        return;
+    }
     let preco = quantidade * valorUnitario;
     document.getElementById('quantidade').value = '';
 
