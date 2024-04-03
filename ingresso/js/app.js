@@ -4,27 +4,37 @@ let quantidade = parseInt(document.getElementById('qtd').value);
 
 if (quantidade <= 0){
     alert ('A quantidade escolhida deve ser maior que zero');
+    return;
 }
 document.getElementById('qtd').value = '';
 
-// Atualizar quantidade de ingresso disponível
-
-if (ingresso === 'Cadeira inferior'){
-    let inferiorDisponivel = document.getElementById('qtd-inferior');
-    inferiorDisponivel.textContent = parseInt(inferiorDisponivel.textContent) - quantidade;
-
+if (ingresso === 'inferior'){
+        let qtdInferior = document.getElementById('qtd-inferior').textContent;
+    let qtdInferiorAtualizada = qtdInferior - quantidade;
+    if(qtdInferiorAtualizada < 0){
+        alert('Quantidade indisponível!');
+        return;
+    } else {
+        document.getElementById('qtd-inferior').textContent = qtdInferiorAtualizada.toString();
+    }
 
 }else if (ingresso === 'superior'){
-    let superiorDisponivel = document.getElementById('qtd-superior');
-    superiorDisponivel.textContent = parseInt(superiorDisponivel.textContent) - quantidade;
+    let qtdSuperior = document.getElementById('qtd-superior').textContent;
+    let qtdSuperiorAtualizada = qtdSuperior - quantidade;
+    if(qtdSuperiorAtualizada < 0){
+        alert('Quantidade indisponível!');
+        return;
+    } else {
+        document.getElementById('qtd-superior').textContent = qtdSuperiorAtualizada.toString();
+    }
 
-}else{
-    let pistaDisponivel = document.getElementById('qtd-pista');
-    pistaDisponivel.textContent = parseInt(pistaDisponivel.textContent) - quantidade;
-}
-}
-
-
-
-
-// alert para quantidade indisponível
+}else {
+    let qtdPista = document.getElementById('qtd-pista').textContent;
+    let qtdPistaAtualizada = qtdPista - quantidade;
+    if(qtdPistaAtualizada < 0){
+        alert('Quantidade indisponível!');
+        return;
+    } else {
+        document.getElementById('qtd-pista').textContent = qtdPistaAtualizada.toString();
+    }
+}}
