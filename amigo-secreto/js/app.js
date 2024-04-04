@@ -6,6 +6,7 @@ function adicionar(){
     let amigo = document.getElementById('nome-amigo');
     if (listaAmigos.includes(amigo.value)){
         alert ('Nome já incluído!');
+        return;
     } if (amigo.value === ''){
         alert ('Campo vazio, informe um nome!');
     } else{
