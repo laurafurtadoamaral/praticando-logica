@@ -2,7 +2,6 @@ let listaAmigos = [];
 let nomesIncluidos = document.getElementById('lista-amigos');
 let resultadoSorteio = document.getElementById('lista-sorteio');
 
-
 function adicionar(){ 
     let amigo = document.getElementById('nome-amigo');
     listaAmigos.push(amigo.value);
@@ -11,17 +10,19 @@ function adicionar(){
 }
 
 function sortear(){
-
-    let listaEmbaralhada = listaAmigos.sort(function(){return 0.5 - Math.random()});
-    resultadoSorteio.innerHTML = listaEmbaralhada.join(' , ');
-
-    // pendente resultado correto. Linkar nomes entrada e saída não podendo ser o mesmo
+    resultadoSorteio.innerHTML = '';
+    let listaEmbaralhada = listaAmigos.slice().sort(function(){return 0.5 - Math.random()});
+    for (let i=0; i<listaEmbaralhada.length; i++){
+        if( i == listaEmbaralhada.length - 1) {
+        resultadoSorteio.innerHTML = resultadoSorteio.innerHTML + listaEmbaralhada[i] + ' --> ' + listaEmbaralhada[0] + '<br>';
+        } else{
+        resultadoSorteio.innerHTML = resultadoSorteio.innerHTML + listaEmbaralhada[i] + ' --> ' + listaEmbaralhada[i + 1] + '<br>';
+        }
+    }
 }
-
 
 function reiniciar(){
     listaAmigos = [];
     nomesIncluidos.innerHTML = '';
     resultadoSorteio.innerHTML = ''; 
-    alert ('Dados zerados');
 }
